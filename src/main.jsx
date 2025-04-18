@@ -6,6 +6,11 @@ import Header from './Components/Header'
 import About from './Pages/About'
 import TimeLine from './Pages/Timeline'
 import Navigation from './Components/Navigation'
+import Projects from './Pages/Projects'
+import Skills from './Pages/Skills'
+import ExperienciaInternacional from './Pages/International'
+import IdancetyConnect from './Pages/IdancetyConnect'
+import ContactSection from './Pages/Contact'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -15,5 +20,10 @@ createRoot(document.getElementById('root')).render(
     <HeroSection />
     <About />
     <TimeLine />
+    <Projects />
+    <Skills />
+    <ExperienciaInternacional />
+    <IdancetyConnect />
+    <ContactSection />
   </StrictMode>,
 )

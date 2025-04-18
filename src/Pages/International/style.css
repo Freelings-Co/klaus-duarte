@@ -1,0 +1,222 @@
+/* ExperienciaInternacional.css */
+.experiencia-internacional {
+    background-color: #121212;
+    padding: 100px 0;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .experiencia-internacional .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #FFD700;
+    text-transform: uppercase;
+  }
+  
+  .section-subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 300;
+    opacity: 0.8;
+  }
+  
+  .mapa-container {
+    position: relative;
+    height: 500px;
+    margin-bottom: 50px;
+    background: url('/images/world-map-outline.png') no-repeat center;
+    background-size: contain;
+  }
+  
+  .mapa-mundial {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 1s ease;
+  }
+  
+  .mapa-mundial.animar {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .pais-pin {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: pin-entrada 0.6s forwards;
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes pin-entrada {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .pin-dot {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 rgba(255, 215, 0, 0.6);
+    animation: pulse 2s infinite;
+  }
+  
+  .pais-pin.ativo .pin-dot {
+    background-color: #fff;
+    width: 16px;
+    height: 16px;
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.6);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+    }
+  }
+  
+  .pin-label {
+    position: absolute;
+    white-space: nowrap;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .pais-pin:hover .pin-label {
+    opacity: 1;
+  }
+  
+  .pais-detalhes {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-left: 3px solid #FFD700;
+    padding: 20px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    max-width: 100%;
+    animation: slide-in 0.5s ease-out;
+  }
+  
+  @keyframes slide-in {
+    from {
+      transform: translateX(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .pais-detalhes h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .pais-anos {
+    font-size: 0.85rem;
+    color: #FFD700;
+    font-weight: normal;
+  }
+  
+  .pais-detalhes h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 400;
+    color: #FFD700;
+  }
+  
+  .pais-detalhes p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .experiencia-sumario {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .experiencia-dados {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .dado {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .numero {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #FFD700;
+    margin-bottom: 10px;
+  }
+  
+  .texto {
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+  
+  @media (max-width: 768px) {
+    .mapa-container {
+      height: 300px;
+      margin-bottom: 30px;
+    }
+    
+    .pais-detalhes {
+      position: relative;
+      bottom: auto;
+      right: auto;
+      width: 100%;
+      margin-top: 20px;
+    }
+    
+    .experiencia-dados {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }

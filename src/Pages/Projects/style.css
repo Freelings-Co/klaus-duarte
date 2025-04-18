@@ -1,0 +1,226 @@
+.projects-section {
+    padding: 100px 0;
+    background-color: #0a0a0a;
+    color: #fff;
+  }
+  
+  .section-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 4px;
+    background-color: #FFD700; /* Amarelo dourado */
+    transform: translateX(30%);
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: #a0a0a0;
+  }
+  
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .projects-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .project-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInUp 0.5s forwards;
+    animation-delay: var(--delay, 0s);
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+  }
+  
+  .project-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .project-card:hover .project-image img {
+    transform: scale(1.1);
+  }
+  
+  .project-year {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #FFD700;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  
+  .project-info {
+    padding: 20px;
+  }
+  
+  .project-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.3rem;
+  }
+  
+  .project-category {
+    color: #FFD700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Modal styles */
+  .project-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+  }
+  
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  
+  .modal-content {
+    background-color: #121212;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 1000px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    animation: scaleIn 0.3s forwards;
+    transform: scale(0.9);
+  }
+  
+  @keyframes scaleIn {
+    to { transform: scale(1); }
+  }
+  
+  .modal-image {
+    flex: 1;
+    min-height: 400px;
+    overflow: hidden;
+  }
+  
+  .modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .modal-info {
+    flex: 1;
+    padding: 40px;
+    position: relative;
+  }
+  
+  .modal-info h2 {
+    margin: 0 0 10px 0;
+    font-size: 2rem;
+    color: #fff;
+  }
+  
+  .modal-category {
+    display: inline-block;
+    color: #FFD700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 15px;
+  }
+  
+  .modal-year {
+    color: #a0a0a0;
+    font-size: 1rem;
+  }
+  
+  .modal-description {
+    margin-top: 20px;
+    line-height: 1.6;
+    color: #ddd;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .close-button:hover {
+    color: #FFD700;
+  }
+  
+  @media (max-width: 768px) {
+    .modal-content {
+      flex-direction: column;
+      width: 90%;
+    }
+    
+    .modal-image {
+      min-height: 250px;
+    }
+  }
