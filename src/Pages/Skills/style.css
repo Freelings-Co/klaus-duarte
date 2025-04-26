@@ -1,123 +1,168 @@
 .skills-section {
-    padding: 100px 0;
-    background-color: #000;
-    color: #fff;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+
+  padding: 5em 0 2em;
+  background-color: #000;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  z-index: 1 !important;
+}
+
+.skills-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skills-tabs {
+
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+#skill-title span {
+  color: #FFD700;
+
+}
+
+#skill-subtitle {
+  font-size: 1em;
+  text-align: center;
+  color: #a0a0a0;
+  margin: 1em 0 2em;
+  display: flex;
+  justify-content: center;
+  padding: 0 1em;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  color: #a0a0a0;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.tab-button::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #FFD700;
+  transition: width 0.3s ease;
+}
+
+.tab-button:hover {
+  color: #fff;
+}
+
+.tab-button.active {
+  color: #FFD700;
+}
+
+.tab-button.active::after {
+  width: 100%;
+}
+
+.skills-content {
+
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.3em;
+
+}
+
+.skill-item {
+  margin-bottom: 25px;
+  opacity: 0;
+  animation: fadeInUp 0.5s forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.skill-name {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.skill-level {
+  color: #FFD700;
+  font-weight: bold;
+}
+
+.skill-bar-container {
+  width: 100%;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #FFD700, #cf6400);
+  border-radius: 4px;
+  width: 0;
+  transition: width 1s ease;
+  animation: growBar 1.5s forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes growBar {
+  from {
+    width: 0;
   }
-  
-  .skills-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+
+  to {
+    width: var(--width);
   }
-  
+}
+
+.skill-description {
+  margin-top: 8px;
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  font-family: "Righteous", sans-serif;
+}
+
+@media (max-width: 768px) {
   .skills-tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-  }
-  
-  .tab-button {
-    background: none;
-    border: none;
-    color: #a0a0a0;
-    font-size: 1.1rem;
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    position: relative;
-    transition: color 0.3s;
-  }
-  
-  .tab-button::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #FFD700;
-    transition: width 0.3s ease;
-  }
-  
-  .tab-button:hover {
-    color: #fff;
-  }
-  
-  .tab-button.active {
-    color: #FFD700;
-  }
-  
-  .tab-button.active::after {
-    width: 100%;
-  }
-  
-  .skills-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .skill-item {
-    margin-bottom: 25px;
-    opacity: 0;
-    animation: fadeInUp 0.5s forwards;
-    animation-delay: var(--delay, 0s);
-  }
-  
-  .skill-header {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 8px;
   }
-  
-  .skill-name {
-    margin: 0;
-    font-size: 1.2rem;
+
+  .tab-button {
+    margin: 5px 0;
   }
-  
-  .skill-level {
-    color: #FFD700;
-    font-weight: bold;
+
+  #skill-title {
+    font-size: 7vw;
+
   }
-  
-  .skill-bar-container {
-    width: 100%;
-    height: 8px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    overflow: hidden;
+
+  .skills-content {
+    padding: 0;
   }
-  
-  .skill-bar {
-    height: 100%;
-    background: linear-gradient(90deg, #FFD700, #FFA500);
-    border-radius: 4px;
-    width: 0;
-    transition: width 1s ease;
-    animation: growBar 1.5s forwards;
-    animation-delay: 0.2s;
+}
+
+
+@media (max-width: 576px) {
+
+  #skill-title {
+    font-size: 10vw;
+
   }
-  
-  @keyframes growBar {
-    from { width: 0; }
-    to { width: var(--width); }
-  }
-  
-  .skill-description {
-    margin-top: 8px;
-    color: #a0a0a0;
-    font-size: 0.9rem;
-  }
-  
-  @media (max-width: 768px) {
-    .skills-tabs {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .tab-button {
-      margin: 5px 0;
-    }
-  }
+}

@@ -71,7 +71,7 @@ const TimelineSection = () => {
   return (
     <section id="jornada" className="timeline-section">
       <div className="timeline-container">
-        <h2 className="section-title">
+        <h2 className="section-title" id='timeline-main-title'>
           <span className="highlight">Minha</span> Jornada
         </h2>
         
@@ -86,6 +86,23 @@ const TimelineSection = () => {
               <span className="timeline-dot"></span>
             </div>
           ))}
+        </div>
+
+        <div className="timeline-controls">
+          <button 
+            className="timeline-btn prev" 
+            onClick={() => setActivePhase(prev => (prev > 0 ? prev - 1 : prev))}
+            disabled={activePhase === 0}
+          >
+            &larr; Anterior
+          </button>
+          <button 
+            className="timeline-btn next" 
+            onClick={() => setActivePhase(prev => (prev < timelineData.length - 1 ? prev + 1 : prev))}
+            disabled={activePhase === timelineData.length - 1}
+          >
+            Próximo &rarr;
+          </button>
         </div>
         
         <div className="timeline-content">
@@ -105,22 +122,7 @@ const TimelineSection = () => {
           ))}
         </div>
         
-        <div className="timeline-controls">
-          <button 
-            className="timeline-btn prev" 
-            onClick={() => setActivePhase(prev => (prev > 0 ? prev - 1 : prev))}
-            disabled={activePhase === 0}
-          >
-            &larr; Anterior
-          </button>
-          <button 
-            className="timeline-btn next" 
-            onClick={() => setActivePhase(prev => (prev < timelineData.length - 1 ? prev + 1 : prev))}
-            disabled={activePhase === timelineData.length - 1}
-          >
-            Próximo &rarr;
-          </button>
-        </div>
+     
       </div>
     </section>
   );

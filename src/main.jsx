@@ -11,12 +11,14 @@ import Skills from './Pages/Skills'
 import ExperienciaInternacional from './Pages/International'
 import IdancetyConnect from './Pages/IdancetyConnect'
 import ContactSection from './Pages/Contact'
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
+import VideoBG from './Components/VideoBg'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <GlobalStyle />
-  
-    <Navigation/>
+
+    <Navigation />
     <HeroSection />
     <About />
     <TimeLine />
@@ -25,5 +27,7 @@ createRoot(document.getElementById('root')).render(
     <ExperienciaInternacional />
     <IdancetyConnect />
     <ContactSection />
+    <ScrollToTop />
+    <VideoBG />
   </StrictMode>,
 )

@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
+import SandyEJr from '../../assets/sandy_e_jr.webp'
+import Anitta from '../../assets/anitta.webp'
+import Kuduro from '../../assets/kuduro.webp'
+import Olimpicos from '../../assets/olimpiadas-inverno.webp'
+import Idancety from '../../assets/idancety.webp'
+import Projects1 from '../../assets/projects1.webp'
+import Suica from '../../assets/suica.webp'
+import Projects2 from '../../assets/projects2.webp'
+// import Projects3 from '../../assets/projects3.webp'
 
 const projectsData = [
   {
@@ -7,7 +16,7 @@ const projectsData = [
     title: "Flocos de Mel",
     category: "TV & Entretenimento Infantil",
     description: "Programa na TV Cultura com direção artística e atuação como personagem Cornetinha",
-    image: "/images/flocos-de-mel.jpg",
+    image: Projects2,
     year: "2003-2005"
   },
   {
@@ -15,7 +24,7 @@ const projectsData = [
     title: "Miss Suíça",
     category: "Coreografia Internacional",
     description: "Coreografia para o Miss Suíça em Genebra, elevando o nível das apresentações",
-    image: "/images/miss-suica.jpg",
+    image: Suica,
     year: "2008"
   },
   {
@@ -23,7 +32,7 @@ const projectsData = [
     title: "Jogos Olímpicos de Inverno",
     category: "Evento Internacional",
     description: "Atuação na abertura do Biathlon nos Jogos Olímpicos de Inverno na Alemanha",
-    image: "/images/olimpiadas-inverno.jpg",
+    image: Olimpicos,
     year: "2010"
   },
   {
@@ -31,7 +40,7 @@ const projectsData = [
     title: "Brasilin",
     category: "Agência de Talentos",
     description: "Agência em Istambul que conectou talentos brasileiros ao mercado euro-asiático",
-    image: "/images/brasilin.jpg",
+    image: Projects1,
     year: "2011-2013"
   },
   {
@@ -39,7 +48,7 @@ const projectsData = [
     title: "DVD 'Meu Lugar' - Anitta",
     category: "Direção Artística",
     description: "Trabalho como coreógrafo e diretor no DVD icônico da artista",
-    image: "/images/anitta-dvd.jpg",
+    image: Anitta,
     year: "2014"
   },
   {
@@ -47,7 +56,7 @@ const projectsData = [
     title: "Lucenzo - Danza Kuduro",
     category: "Coreografia Internacional",
     description: "Direção e coreografia para o hit mundial 'Danza Kuduro'",
-    image: "/images/lucenzo.jpg",
+    image: Kuduro,
     year: "2015"
   },
   {
@@ -55,7 +64,7 @@ const projectsData = [
     title: "Sandy & Júnior - Turnê",
     category: "Preparação Artística",
     description: "Treinamento direto com Júnior Lima para a turnê de retorno da dupla",
-    image: "/images/junior-lima.jpg",
+    image: SandyEJr,
     year: "2019"
   },
   {
@@ -63,7 +72,7 @@ const projectsData = [
     title: "IDANCETY",
     category: "Formação Artística",
     description: "Projeto City of Dancers para descobrir e desenvolver novos talentos",
-    image: "/images/idancety.jpg",
+    image: Idancety,
     year: "2016-Presente"
   }
 ];
@@ -103,8 +112,8 @@ const Projects = () => {
   return (
     <section id="projects" className="projects-section">
       <div className="container">
-        <h2 className="section-title">Projetos Marcantes</h2>
-        <p className="section-subtitle">
+        <h2 className="projects-title"><span>Projetos</span> Marcantes</h2>
+        <p className="projects-subtitle">
           Uma trajetória de arte, impacto e transformação ao redor do mundo
         </p>
         

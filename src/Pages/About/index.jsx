@@ -28,7 +28,7 @@ const AboutSection = () => {
     <section id="sobre" className="about-section">
       <div className="about-container">
         <div className="about-content">
-          <h2 className="section-title fade-in">
+          <h2 className="about-title fade-in">
             <span className="highlight">Fazendo Sonhos</span> Virarem Realidade
           </h2>
           

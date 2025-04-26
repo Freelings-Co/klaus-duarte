@@ -1,6 +1,6 @@
 /* AboutSection.css */
 .about-section {
-  padding: 120px 5%;
+  padding: 4em 5%;
   background-color: #0c0c0c;
   color: #fff;
   overflow: hidden;
@@ -15,20 +15,23 @@
   width: 100%;
   margin: 0 auto;
   gap: 50px;
+
 }
 
 .about-content {
   flex: 1;
 }
 
-.section-title {
+
+.about-title {
   font-family: "Audiowide", sans-serif;
-  font-size: 3rem;
+  font-size: 2.5em;
   margin-bottom: 2rem;
   line-height: 1.2;
 }
 
 .highlight {
+  animation: glow 3s ease-in-out forwards;
   font-family: "Audiowide", sans-serif;
   color: #FFD700;
   position: relative;
@@ -86,14 +89,17 @@
 .about-image {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
+  z-index: 1;
+
 }
 
 .image-container {
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 28em;
+
 }
 
 .image-container::before {
@@ -105,6 +111,24 @@
   height: 100%;
   border: 2px solid #FFD700;
   z-index: 1;
+
+}
+
+.image-container::after {
+  content: 'Klaus Duarte';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  background-color: rgb(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  padding: 1em;
+  border-radius: 7px 0 7px 0;
+  color: #FFD700;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-bottom: 3px solid #FFD700;
 }
 
 .image-container img {
@@ -114,6 +138,7 @@
   position: relative;
   z-index: 2;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 7px;
 }
 
 /* Animation classes */
@@ -123,31 +148,99 @@
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
+
+
 .fade-in.animate {
   opacity: 1;
   transform: translateY(0);
 }
 
+
+@media screen and (max-width: 1120px) {
+  .about-title {
+    width: 120%;
+  }
+}
+
 @media screen and (max-width: 992px) {
   .about-container {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
   .about-image {
     margin-bottom: 50px;
   }
 
-  .section-title {
-    font-size: 2.5rem;
+  .about-title {
+    text-align: center;
+    font-size: 3rem;
+    width: 70%;
+    margin-inline: auto;
+  }
+
+  .about-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+
+  .highlight-item {
+    margin-right: 0px;
   }
 }
+
+@media screen and (max-width: 759px) {
+
+
+  .about-title {
+
+    font-size: 7vw;
+    width: 100%;
+
+  }
+}
+
 
 @media screen and (max-width: 576px) {
   .about-highlights {
     justify-content: space-around;
   }
 
-  .section-title {
-    font-size: 2rem;
+  .about-title {
+    font-size: 9vw;
   }
+
+  .about-quote {
+    font-size: 4.3vw;
+  }
+
+  .about-text p {
+    text-align: justify;
+  }
+
+  .about-highlights {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    max-width: 24em;
+    max-width: 80vw;
+  }
+
+  .image-container::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 75vw;
+    height: 100%;
+    border: 2px solid #FFD700;
+    z-index: 1;
+  }
+
 }

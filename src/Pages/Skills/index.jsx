@@ -51,8 +51,8 @@ const Skills = () => {
   return (
     <section id="skills" className={`skills-section ${isVisible ? 'visible' : ''}`}>
       <div className="container">
-        <h2 className="section-title">Skills & Expertise</h2>
-        <p className="section-subtitle">
+        <h2 className="section-title" id='skill-title'><span>Skills</span> & Expertise</h2>
+        <p id='skill-subtitle'>
           Uma combinação única de talentos artísticos e visão estratégica
         </p>
 
