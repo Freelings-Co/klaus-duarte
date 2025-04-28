@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import SandyEJr from '../../assets/jrklaus.webp'
-import Anitta from '../../assets/anitta.webp'
+import SandyEJr from '../../assets/jrk.webp'
+import Anitta from '../../assets/anittadvd.webp'
 import Kuduro from '../../assets/kuduro.webp'
 import Olimpicos from '../../assets/olimpiadas-inverno.webp'
 import Idancety from '../../assets/idancety.webp'
 import Projects1 from '../../assets/projects1.webp'
 import Suica from '../../assets/suica.webp'
 import Projects2 from '../../assets/projects2.webp'
-import FanFeat from '../../assets/fanfeat.webp'
+import FanFeat from '../../assets/fanfeatcoke.webp'
 import Milenium from '../../assets/mileniumdance.webp'
 import Coke from '../../assets/coke.webp'
 import MLevel from '../../assets/mlevelup.webp'
