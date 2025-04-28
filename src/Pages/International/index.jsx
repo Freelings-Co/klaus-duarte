@@ -8,6 +8,7 @@ import EspanhaFlag from '../../assets/espanha.webp'
 import SuicaFlag from '../../assets/suicaflag.webp'
 import AlemanhaFlag from '../../assets/alemanha.webp'
 import CostaRicaFlag from '../../assets/costarica.webp'
+import AustriaFlag from '../../assets/austria.webp'
 
 const imagensPaises = {
   Brasil: BrazilFlag,
@@ -15,7 +16,8 @@ const imagensPaises = {
   Espanha: EspanhaFlag,
   "Suíça": SuicaFlag,
   Alemanha: AlemanhaFlag,
-  "Costa Rica": CostaRicaFlag
+  "Costa Rica": CostaRicaFlag,
+  Austria: AustriaFlag
 };
 
 const paises = [
@@ -24,11 +26,19 @@ const paises = [
     nome: "Brasil",
     cidade: "Goiânia/São Paulo",
     descricao: "Berço criativo e polo de projetos como IDANCETY e produções com Anitta, Ivete Sangalo e grandes nomes da TV brasileira.",
-    anos: "1985-2007, 2012-Presente",
+    anos: "1985-2003, 2012-Presente",
     cor: "#FFD700"
   },
   {
     id: 2,
+    nome: "Austria",
+    cidade: "Vienna",
+    descricao: "Criei e apresentei shows para o Tui Magic Life e para a AFAS – Austrian Aerobic Fitness School, unindo performance artística e entretenimento em projetos internacionais de alto nível.",
+    anos: "2003-2007",
+    cor: "#FFD700"
+  },
+  {
+    id: 3,
     nome: "Turquia",
     cidade: "Istambul",
     descricao: "Fundação da Brasilin, hub criativo conectando talentos brasileiros ao mercado euro-asiático, produzindo para Fashion TV, Coca-Cola e grandes marcas.",
@@ -36,7 +46,7 @@ const paises = [
     cor: "#FFD700"
   },
   {
-    id: 3,
+    id: 4,
     nome: "Espanha",
     cidade: "Ilhas Canárias",
     descricao: "Trabalho em resorts de luxo e aperfeiçoamento do espanhol, consolidando a carreira internacional no conceito 'All Inclusive'.",
@@ -44,7 +54,7 @@ const paises = [
     cor: "#FFD700"
   },
   {
-    id: 4,
+    id: 5,
     nome: "Suíça",
     cidade: "Genebra",
     descricao: "Coreografia do Miss Suíça e participação em eventos internacionais de grande porte.",
@@ -52,7 +62,7 @@ const paises = [
     cor: "#FFD700"
   },
   {
-    id: 5,
+    id: 6,
     nome: "Alemanha",
     cidade: "Munique",
     descricao: "Atuação na abertura do Biathlon nos Jogos Olímpicos de Inverno, marcando presença no cenário esportivo internacional.",
@@ -60,13 +70,14 @@ const paises = [
     cor: "#FFD700"
   },
   {
-    id: 6,
+    id: 7,
     nome: "Costa Rica",
     cidade: "San José",
     descricao: "Fase atual: Internacionalização do projeto IDANCETY, criando um polo criativo de produção, formação e exportação artística.",
-    anos: "2025-Presente",
+    anos: "2020-Presente",
     cor: "#FFD700"
   }
+  
 ];
 
 const ExperienciaInternacional = () => {

@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import SandyEJr from '../../assets/sandy_e_jr.webp'
-import Anitta from '../../assets/anitta.webp'
+import SandyEJr from '../../assets/JrKlaus.webp'
+import Anitta from '../../assets/Anitta.webp'
 import Kuduro from '../../assets/kuduro.webp'
 import Olimpicos from '../../assets/olimpiadas-inverno.webp'
 import Idancety from '../../assets/idancety.webp'
 import Projects1 from '../../assets/projects1.webp'
 import Suica from '../../assets/suica.webp'
 import Projects2 from '../../assets/projects2.webp'
-// import Projects3 from '../../assets/projects3.webp'
+import FanFeat from '../../assets/FanFeat.webp'
+import Milenium from '../../assets/Milenium.webp'
+import CokeKlaus from '../../assets/CokeKlaus.webp'
+import MLevel from '../../assets/MLevel.webp'
+import Tui from '../../assets/Tui.webp'
 
 const projectsData = [
   {
@@ -17,10 +21,26 @@ const projectsData = [
     category: "TV & Entretenimento Infantil",
     description: "Programa na TV Cultura com direção artística e atuação como personagem Cornetinha",
     image: Projects2,
-    year: "2003-2005"
+    year: "1997-2003"
   },
   {
     id: 2,
+    title: "Tui Magic Life",
+    category: "Supervisor de Entretenimento",
+    description: "Iniciei minha trajetória no Tui Magic Life, onde evoluí de assistente de gerente a supervisor de entretenimento na área de hotelaria, desenvolvendo habilidades de liderança, gestão de equipes e criação de experiências para o público.",
+    image: Tui,
+    year: "2003-2007"
+  },
+  {
+    id: 3,
+    title: "Brasilim",
+    category: "Agência de Talentos",
+    description: "Agência em Istambul que conectou talentos brasileiros ao mercado euro-asiático",
+    image: Projects1,
+    year: "2007-2008"
+  },
+  {
+    id: 4,
     title: "Miss Suíça",
     category: "Coreografia Internacional",
     description: "Coreografia para o Miss Suíça em Genebra, elevando o nível das apresentações",
@@ -28,31 +48,40 @@ const projectsData = [
     year: "2008"
   },
   {
-    id: 3,
+    id: 5,
     title: "Jogos Olímpicos de Inverno",
     category: "Evento Internacional",
     description: "Atuação na abertura do Biathlon nos Jogos Olímpicos de Inverno na Alemanha",
     image: Olimpicos,
     year: "2010"
   },
+  
   {
-    id: 4,
-    title: "Brasilin",
-    category: "Agência de Talentos",
-    description: "Agência em Istambul que conectou talentos brasileiros ao mercado euro-asiático",
-    image: Projects1,
-    year: "2011-2013"
-  },
-  {
-    id: 5,
+    id: 6,
     title: "DVD 'Meu Lugar' - Anitta",
-    category: "Direção Artística",
-    description: "Trabalho como coreógrafo e diretor no DVD icônico da artista",
+    category: "Bailarino Criativo",
+    description: "Atuei como bailarino criativo, colaborando na criação dos números masculinos ao lado das coreógrafas Katia Barros e Arielle Macedo, durante os 45 dias de ensaios e gravação do DVD.",
     image: Anitta,
     year: "2014"
   },
   {
-    id: 6,
+    id: 7,
+    title: "Coca Cola X Klaus Duarte",
+    category: "Coreografia",
+    description: "Atuei como coreógrafo para a Coca-Cola Hospitality Center durante a Copa do Mundo no Brasil 2014 e no lançamento da Tocha Olímpica no Rio 2016, liderando o meu elenco — o City of Dancers Brasil.",
+    image: CokeKlaus,
+    year: "2014 e 2016"
+  },
+  {
+    id: 8,
+    title: "Coca Cola Fan-Feat",
+    category: "Coreografia",
+    description: "Assinei a coreografia do Coca-Cola FanFeat, um projeto grandioso que uniu Luan Santana, Pabllo Vittar e Maiara & Maraisa na performance do hit Hasta La Vista, celebrando a energia e a diversidade da música brasileira",
+    image: FanFeat,
+    year: "2018"
+  },
+  {
+    id: 9,
     title: "Lucenzo - Danza Kuduro",
     category: "Coreografia Internacional",
     description: "Direção e coreografia para o hit mundial 'Danza Kuduro'",
@@ -60,20 +89,36 @@ const projectsData = [
     year: "2015"
   },
   {
-    id: 7,
+    id: 10,
+    title: "Millennium Dance Complez Brasil",
+    category: "Diretor Artístico e Coreógrafo / Professor",
+    description: "Atuei como diretor artístico, coreógrafo e professor na Millennium Dance Complez Brasil, franquia internacional da icônica escola de dança de Hollywood. Fiz parte da equipe desde a fundação da unidade no Brasil, contribuindo para sua construção e consolidação no mercado, até iniciar um novo capítulo com a criação do meu próprio espaço, o Connect 360.",
+    image: Milenium,
+    year: "2015-2019"
+  },
+  {
+    id: 11,
     title: "Sandy & Júnior - Turnê",
     category: "Preparação Artística",
-    description: "Treinamento direto com Júnior Lima para a turnê de retorno da dupla",
+    description: "Participei do treinamento artístico diretamente com Júnior Lima para a turnê de retorno da dupla, contribuindo para a preparação e desenvolvimento da performance.",
     image: SandyEJr,
     year: "2019"
   },
   {
-    id: 8,
+    id: 12,
+    title: "M. Levell Up",
+    category: "Host",
+    description: "Atuei como host na abertura da M.Level Up, apresentando o workshop do renomado Nick Cooper, vocal coach de artistas como Beyoncé, Usher, Katy Perry e dos programas The Voice e American Idol.",
+    image: MLevel,
+    year: "2021"
+  },
+  {
+    id: 13,
     title: "IDANCETY",
     category: "Formação Artística",
     description: "Projeto City of Dancers para descobrir e desenvolver novos talentos",
     image: Idancety,
-    year: "2016-Presente"
+    year: "2010-Presente"
   }
 ];
 
