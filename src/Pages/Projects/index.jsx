@@ -9,10 +9,10 @@ import Projects1 from '../../assets/projects1.webp'
 import Suica from '../../assets/suica.webp'
 import Projects2 from '../../assets/projects2.webp'
 import FanFeat from '../../assets/fanfeat.webp'
-import Milenium from '../../assets/milenium.webp'
-import CokeKlaus from '../../assets/cokeklaus.webp'
-import MLevel from '../../assets/mlevel.webp'
-import Tui from '../../assets/tui.webp'
+import Milenium from '../../assets/mileniumdance.webp'
+import Coke from '../../assets/coke.webp'
+import MLevel from '../../assets/mlevelup.webp'
+import Tui from '../../assets/tuimagic.webp'
 
 const projectsData = [
   {
@@ -69,7 +69,7 @@ const projectsData = [
     title: "Coca Cola X Klaus Duarte",
     category: "Coreografia",
     description: "Atuei como coreógrafo para a Coca-Cola Hospitality Center durante a Copa do Mundo no Brasil 2014 e no lançamento da Tocha Olímpica no Rio 2016, liderando o meu elenco — o City of Dancers Brasil.",
-    image: CokeKlaus,
+    image: Coke,
     year: "2014 e 2016"
   },
   {
