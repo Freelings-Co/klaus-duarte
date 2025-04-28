@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import SandyEJr from '../../assets/JrKlaus.webp'
-import Anitta from '../../assets/Anitta.webp'
+import SandyEJr from '../../assets/jrKlaus.webp'
+import Anitta from '../../assets/anitta.webp'
 import Kuduro from '../../assets/kuduro.webp'
 import Olimpicos from '../../assets/olimpiadas-inverno.webp'
 import Idancety from '../../assets/idancety.webp'
 import Projects1 from '../../assets/projects1.webp'
 import Suica from '../../assets/suica.webp'
 import Projects2 from '../../assets/projects2.webp'
-import FanFeat from '../../assets/FanFeat.webp'
-import Milenium from '../../assets/Milenium.webp'
-import CokeKlaus from '../../assets/CokeKlaus.webp'
-import MLevel from '../../assets/MLevel.webp'
-import Tui from '../../assets/Tui.webp'
+import FanFeat from '../../assets/fanFeat.webp'
+import Milenium from '../../assets/milenium.webp'
+import CokeKlaus from '../../assets/cokeKlaus.webp'
+import MLevel from '../../assets/mLevel.webp'
+import Tui from '../../assets/tui.webp'
 
 const projectsData = [
   {
