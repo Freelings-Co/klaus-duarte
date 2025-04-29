@@ -90,9 +90,9 @@ const projectsData = [
   },
   {
     id: 10,
-    title: "Millennium Dance Complez Brasil",
+    title: "Millennium Dance Complex Brasil",
     category: "Diretor Artístico e Coreógrafo / Professor",
-    description: "Atuei como diretor artístico, coreógrafo e professor na Millennium Dance Complez Brasil, franquia internacional da icônica escola de dança de Hollywood. Fiz parte da equipe desde a fundação da unidade no Brasil, contribuindo para sua construção e consolidação no mercado, até iniciar um novo capítulo com a criação do meu próprio espaço, o Connect 360.",
+    description: "Atuei como diretor artístico, coreógrafo e professor na Millennium Dance Complex Brasil, franquia internacional da icônica escola de dança de Hollywood. Fiz parte da equipe desde a fundação da unidade no Brasil, contribuindo para sua construção e consolidação no mercado, até iniciar um novo capítulo com a criação do meu próprio espaço, o Connect 360.",
     image: Milenium,
     year: "2015-2019"
   },
