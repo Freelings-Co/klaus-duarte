@@ -30,6 +30,7 @@ const TimelineSection = () => {
         "Personagem Cornetinha no grupo Flocos de Mel",
         "Programa na TV Cultura",
         "Direção artística aos 17 anos",
+        "Como Ator realizou diversos trabalhos, ganhando premios e ingressou na Universidade Federal"
       ],
     },
     {
@@ -38,7 +39,8 @@ const TimelineSection = () => {
       description:
         "Atuei no TUI Magic Life, onde comecei como assistente de gerente e fui promovido a supervisor de entretenimento. Nesse período, desenvolvi habilidades em liderança, gestão de equipes e criação de experiências memoráveis para hóspedes no setor hoteleiro.",
       milestones: [
-        "Entrada como assistente de gerente de entretenimento",
+        "Entrada como Bailarino e acrobata",
+        "Promoção a assistente de gerente de entretenimento",
         "Promoção a supervisor de entretenimento",
         "Criação de experiências para hóspedes",
         "Gestão de equipe multidisciplinar",
@@ -78,7 +80,8 @@ const TimelineSection = () => {
     'Participação nos DVDs de Anitta e Ivete Sangalo',
     'Direção artística com Lucenzo e outros artistas renomados',
     'Criação do projeto IDANCETY – City of Dancers',
-    'Consolidação como coreógrafo e diretor artístico no mercado nacional'
+    'Consolidação como coreógrafo e diretor artístico no mercado nacional',
+    "Preparador artístico de novos talentos como: Annie Gabriele, Lauana Prado e Heiber Kossa"
   ],
     },
     {
