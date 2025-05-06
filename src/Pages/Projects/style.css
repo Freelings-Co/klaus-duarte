@@ -258,7 +258,10 @@
 }
 
 @media (max-width: 689px) {
-
+  
+  .projects-section {
+    margin-top: 180px;
+  }
 .project-image{
   height: 320px;
 }
