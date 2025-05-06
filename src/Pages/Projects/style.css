@@ -266,7 +266,9 @@
 }
 
 @media (max-width: 576px) {
-
+  .projects-section {
+    margin-top: 180px;
+  }
   .projects-title {
     font-size: 9vw;
   }
