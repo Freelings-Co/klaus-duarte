@@ -208,3 +208,11 @@
     font-size: 9vw;
   }
 }
+@media screen and (max-width: 399px) {
+  .timeline-section{
+    margin-bottom: 420px;
+  }
+  #timeline-main-title {
+    font-size: 9vw;
+  }
+}
