@@ -260,7 +260,7 @@
 @media (max-width: 689px) {
   
   .projects-section {
-    margin-top: 180px;
+    margin-top: 270px;
   }
 .project-image{
   height: 320px;
@@ -270,7 +270,7 @@
 
 @media (max-width: 576px) {
   .projects-section {
-    margin-top: 180px;
+    margin-top: 270px;
   }
   .projects-title {
     font-size: 9vw;

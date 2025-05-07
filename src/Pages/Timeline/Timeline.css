@@ -3,7 +3,8 @@
   padding: 2em 5%;
   background-color: #0c0c0c;
   color: #fff;
-  height: 100%;
+  height: auto;
+  margin-bottom: 120px;
 
 }
 
@@ -201,7 +202,7 @@
 
 @media screen and (max-width: 576px) {
   .timeline-section{
-    margin-bottom: 120px;
+    margin-bottom: 350px;
   }
   #timeline-main-title {
     font-size: 9vw;
