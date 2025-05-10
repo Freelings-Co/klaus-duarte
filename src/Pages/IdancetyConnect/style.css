@@ -39,6 +39,11 @@
     radial-gradient(circle at bottom right, rgba(255, 215, 0, 0.05), transparent 40%);
 }
 
+.tony-robbins-overlay {
+  background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1), transparent 70%),
+    radial-gradient(circle at bottom left, rgba(255, 215, 0, 0.05), transparent 40%);
+}
+
 .container {
   position: relative;
   max-width: 1280px;
@@ -532,6 +537,90 @@
   transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
+/* Tony Robbins Event Styles */
+.event-image-container {
+  width: 100%;
+  height: 500px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s var(--animation-timing);
+}
+
+.event-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s var(--animation-timing);
+}
+
+.event-image.hovered {
+  transform: scale(1.02);
+}
+
+.tony-robbins-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.8s var(--animation-timing);
+}
+
+.event-image:hover .tony-robbins-img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  padding: 30px;
+  transform: translateY(0);
+  transition: transform 0.4s var(--animation-timing);
+}
+
+.event-image:hover .image-overlay {
+  transform: translateY(-10px);
+}
+
+.overlay-content {
+  color: var(--text-primary);
+}
+
+.overlay-content h4 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+}
+
+.overlay-content p {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+}
+
+.limited-seats {
+  display: inline-block;
+  background: rgba(255, 215, 0, 0.2);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.event-image:hover .limited-seats {
+  background: rgba(255, 215, 0, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
 /* Placeholder for when images can't load */
 .slider-card.image-loading::after {
   background-image: linear-gradient(135deg, var(--card-bg), var(--dark-gray));
@@ -573,9 +662,14 @@
     width: 100%;
   }
 
-  /* Padding consistente para ambas as seções */
+  .event-image-container {
+    height: 400px;
+  }
+
+  /* Padding consistente para todas as seções */
   #idancety-global .container,
-  #connect360 .container {
+  #connect360 .container,
+  #tony-robbins .container {
     padding: 0 20px;
   }
 }
