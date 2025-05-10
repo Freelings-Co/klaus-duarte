@@ -81,7 +81,7 @@ const TimelineSection = () => {
     'Direção artística com Lucenzo e outros artistas renomados',
     'Criação do projeto IDANCETY – City of Dancers',
     'Consolidação como coreógrafo e diretor artístico no mercado nacional',
-    "Preparador artístico de novos talentos como: Annie Gabriele, Lauana Prado e Heiber Kossa"
+    "Preparador artístico de novos talentos como: ANY GABRIELLY, LAUANNA PRADO e REY VERCOSA"
   ],
     },
     {
