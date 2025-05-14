@@ -41,6 +41,10 @@ const IdancetyConnect = () => {
   // Auto-advance sliders with pause on hover
   const [idancetyPaused, setIdancetyPaused] = useState(false);
   const [connect360Paused, setConnect360Paused] = useState(false);
+  
+  // Touch handling for mobile
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   useInterval(() => {
     if (!idancetyPaused) {
@@ -75,6 +79,27 @@ const IdancetyConnect = () => {
     );
   };
 
+  // Handle touch events for mobile swipe
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e, isIdancety = true) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX.current;
+    
+    // If the swipe is significant enough (more than 50px)
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        // Swipe left - go to next slide
+        isIdancety ? nextIdancetySlide() : nextConnect360Slide();
+      } else {
+        // Swipe right - go to previous slide
+        isIdancety ? prevIdancetySlide() : prevConnect360Slide();
+      }
+    }
+  };
+
   // Intersection Observer effect
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -83,7 +108,7 @@ const IdancetyConnect = () => {
           setAnimateIn(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
     );
 
     const currentRef = sectionRef.current;
@@ -142,11 +167,9 @@ const IdancetyConnect = () => {
               >
                 <div
                   className="slider-wrapper"
-                  style={{
-                    transform: `translateX(-${
-                      currentIdancetySlide * (100 / idancetySlideCount)
-                    }%)`,
-                  }}
+                  style={{ transform: `translateX(-${currentIdancetySlide * 33.333}%)` }}
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={(e) => handleTouchEnd(e, true)}
                 >
                   {/* Card 1 */}
                   <div className="slider-card formation-card">
@@ -271,11 +294,11 @@ const IdancetyConnect = () => {
               >
                 <div
                   className="slider-wrapper"
-                  style={{
-                    transform: `translateX(-${
-                      currentConnect360Slide * (100 / connect360SlideCount)
-                    }%)`,
-                  }}
+                  style={{ transform: `translateX(-${currentConnect360Slide * 33.333}%)` }}
+                  onMouseEnter={() => setConnect360Paused(true)}
+                  onMouseLeave={() => setConnect360Paused(false)}
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={(e) => handleTouchEnd(e, false)}
                 >
                   {/* Card 1 */}
                   <div className="slider-card connection-card">
@@ -416,6 +439,7 @@ const IdancetyConnect = () => {
                     src={Tonny}
                     alt="Tony Robbins em evento de desenvolvimento pessoal"
                     className="tony-robbins-img"
+                    loading="lazy"
                   />
                   <div className="image-overlay">
                     <div className="overlay-content">
