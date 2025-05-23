@@ -444,6 +444,12 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
 }
 
 .btn-primary::before {

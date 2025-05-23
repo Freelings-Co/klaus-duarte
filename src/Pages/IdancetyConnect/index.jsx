@@ -184,7 +184,7 @@ const IdancetyConnect = () => {
 
               <div className="cta-container">
                 <button className="btn-primary">
-                  <span>Saiba mais</span>
+                  <a href="#contato"><span>Saiba mais</span></a>
                   <span className="btn-arrow">→</span>
                 </button>
               </div>
@@ -313,7 +313,7 @@ const IdancetyConnect = () => {
 
               <div className="cta-container">
                 <button className="btn-primary">
-                  <span>Conecte-se agora</span>
+                  <a href="#contato"><span>Conecte-se agora</span></a>
                   <span className="btn-arrow">→</span>
                 </button>
               </div>
