@@ -44,6 +44,223 @@
     radial-gradient(circle at bottom left, rgba(255, 215, 0, 0.05), transparent 40%);
 }
 
+/* Signature Hospitality Overlay */
+.signature-hospitality-overlay {
+  background: radial-gradient(circle at top right, rgba(0, 180, 216, 0.1), transparent 60%),
+    radial-gradient(circle at bottom left, rgba(0, 180, 216, 0.05), transparent 40%);
+}
+
+/* Signature Hospitality Overlay */
+.signature-hospitality-overlay {
+  background: radial-gradient(circle at top right, rgba(0, 180, 216, 0.1), transparent 60%),
+    radial-gradient(circle at bottom left, rgba(0, 180, 216, 0.05), transparent 40%);
+}
+
+/* Signature Hospitality Card */
+.hospitality-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  perspective: 1000px;
+}
+
+.hospitality-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, rgba(15, 15, 15, 0.9), rgba(30, 30, 30, 0.9));
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid rgba(0, 180, 216, 0.2);
+}
+
+.hospitality-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(0, 180, 216, 0.4);
+}
+
+.hospitality-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(0, 180, 216, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hospitality-card:hover::before {
+  transform: translateX(100%);
+}
+
+.hospitality-card-content {
+  position: relative;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.7), rgba(30, 30, 30, 0.7));
+  backdrop-filter: blur(10px);
+}
+
+.hospitality-card h4 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+.hospitality-card h4::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #00b4d8, #0077b6);
+  border-radius: 3px;
+}
+
+.hospitality-card p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.hospitality-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hospitality-features li,
+.feature-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.feature-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #00b4d8;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.slider-card .feature-list {
+  margin-top: 15px;
+}
+
+.slider-card .feature-list li {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .feature-list li {
+    font-size: 0.95rem;
+  }
+  
+  .slider-card .feature-list li {
+    font-size: 0.9rem;
+  }
+}
+
+.hospitality-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #00b4d8;
+  font-weight: bold;
+}
+
+/* Adjust area-tags for Signature section */
+.signature-hospitality-section .area-tag {
+  background: rgba(0, 180, 216, 0.1);
+  border: 1px solid rgba(0, 180, 216, 0.3);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.signature-hospitality-section .area-tag:hover {
+  background: rgba(0, 180, 216, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .hospitality-card-content {
+    padding: 30px;
+  }
+  
+  .hospitality-card h4 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hospitality-image-container {
+    min-height: 350px;
+    margin-top: 40px;
+  }
+  
+  .hospitality-card-content {
+    padding: 25px;
+  }
+  
+  .hospitality-card h4 {
+    font-size: 1.4rem;
+  }
+  
+  .hospitality-card p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hospitality-card-content {
+    padding: 20px;
+  }
+  
+  .hospitality-card h4 {
+    font-size: 1.3rem;
+  }
+  
+  .hospitality-features li {
+    font-size: 0.95rem;
+  }
+}
+
 .container {
   position: relative;
   max-width: 1280px;
@@ -470,15 +687,34 @@
 
 /* Specific background images for each card */
 .formation-card::after {
-background-image: url('../../assets/formation.webp');
-background-position: top;
-background-size: cover;
+  background-image: url('../../assets/formation.webp');
+  background-position: top;
+  background-size: cover;
 }
 
 .production-card::after {
-background-image: url('../../assets/production.webp');
-background-position: top;
-background-size: cover;
+  background-image: url('../../assets/production.webp');
+  background-position: top;
+  background-size: cover;
+}
+
+/* Signature Hospitality Cards Backgrounds */
+.management-card::after {
+  background-image: url('../../assets/signature1.webp');
+  background-position: center;
+  background-size: cover;
+}
+
+.marketing-card::after {
+  background-image: url('../../assets/signature2.webp');
+  background-position: center;
+  background-size: cover;
+}
+
+.sales-card::after {
+  background-image: url('../../assets/signature3.webp');
+  background-position: center;
+  background-size: cover;
 }
 
 .export-card::after {

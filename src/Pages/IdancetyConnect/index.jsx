@@ -1,7 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./style.css";
 import Tonny from "../../assets/BannerTonnyRobins.jpg";
-import { User, Film, Sparkles, Link, Lightbulb, RefreshCw } from "lucide-react";
+import {
+  User,
+  Film,
+  Sparkles,
+  Link,
+  Lightbulb,
+  RefreshCw,
+  Rotate3d,
+  Navigation,
+  Percent,
+} from "lucide-react";
 
 // Custom hook for slider autoplay
 const useInterval = (callback, delay) => {
@@ -35,13 +45,18 @@ const IdancetyConnect = () => {
   const [currentConnect360Slide, setCurrentConnect360Slide] = useState(0);
   const connect360SlideCount = 3;
 
-  // Tony Robbins event state
+  // Event states
   const [tonyRobbinsHovered, setTonyRobbinsHovered] = useState(false);
+
+  // Slider state for Signature Hospitality section
+  const [currentSignatureSlide, setCurrentSignatureSlide] = useState(0);
+  const signatureSlideCount = 3;
 
   // Auto-advance sliders with pause on hover
   const [idancetyPaused, setIdancetyPaused] = useState(false);
   const [connect360Paused, setConnect360Paused] = useState(false);
-  
+  const [signaturePaused, setSignaturePaused] = useState(false);
+
   // Touch handling for mobile
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
@@ -55,6 +70,12 @@ const IdancetyConnect = () => {
   useInterval(() => {
     if (!connect360Paused) {
       setCurrentConnect360Slide((prev) => (prev + 1) % connect360SlideCount);
+    }
+  }, 5000);
+
+  useInterval(() => {
+    if (!signaturePaused) {
+      setCurrentSignatureSlide((prev) => (prev + 1) % signatureSlideCount);
     }
   }, 5000);
 
@@ -79,6 +100,16 @@ const IdancetyConnect = () => {
     );
   };
 
+  const nextSignatureSlide = () => {
+    setCurrentSignatureSlide((prev) => (prev + 1) % signatureSlideCount);
+  };
+
+  const prevSignatureSlide = () => {
+    setCurrentSignatureSlide(
+      (prev) => (prev - 1 + signatureSlideCount) % signatureSlideCount
+    );
+  };
+
   // Handle touch events for mobile swipe
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
@@ -87,7 +118,7 @@ const IdancetyConnect = () => {
   const handleTouchEnd = (e, isIdancety = true) => {
     touchEndX.current = e.changedTouches[0].clientX;
     const diff = touchStartX.current - touchEndX.current;
-    
+
     // If the swipe is significant enough (more than 50px)
     if (Math.abs(diff) > 50) {
       if (diff > 0) {
@@ -108,7 +139,7 @@ const IdancetyConnect = () => {
           setAnimateIn(true);
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+      { threshold: 0.1, rootMargin: "0px 0px -100px 0px" }
     );
 
     const currentRef = sectionRef.current;
@@ -167,7 +198,9 @@ const IdancetyConnect = () => {
               >
                 <div
                   className="slider-wrapper"
-                  style={{ transform: `translateX(-${currentIdancetySlide * 33.333}%)` }}
+                  style={{
+                    transform: `translateX(-${currentIdancetySlide * 33.333}%)`,
+                  }}
                   onTouchStart={handleTouchStart}
                   onTouchEnd={(e) => handleTouchEnd(e, true)}
                 >
@@ -294,7 +327,11 @@ const IdancetyConnect = () => {
               >
                 <div
                   className="slider-wrapper"
-                  style={{ transform: `translateX(-${currentConnect360Slide * 33.333}%)` }}
+                  style={{
+                    transform: `translateX(-${
+                      currentConnect360Slide * 33.333
+                    }%)`,
+                  }}
                   onMouseEnter={() => setConnect360Paused(true)}
                   onMouseLeave={() => setConnect360Paused(false)}
                   onTouchStart={handleTouchStart}
@@ -448,6 +485,151 @@ const IdancetyConnect = () => {
                       <span className="limited-seats">Vagas Limitadas</span>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Signature Hospitality Section */}
+      <section
+        className="project-section signature-hospitality-section"
+        id="signature-hospitality"
+      >
+        <div className="bg-overlay signature-hospitality-overlay"></div>
+        <div className="container">
+          <div
+            className={`content-layout reverse ${
+              animateIn ? "animate-in" : ""
+            }`}
+          >
+            <div className="content-left">
+              <h3 className="project-title">SIGNATURE HOSPITALITY</h3>
+              <div className="project-tagline">
+                <span>
+                  Fazemos seu hotel ou restaurante crescer, sem enrolação.
+                </span>
+              </div>
+              <p className="project-description">
+                Na Signature Hospitality, você encontra soluções completas para
+                gestão, marketing e vendas no setor de hospitalidade. Criamos
+                estratégias inteligentes, personalizadas e SEM contratos
+                amarrados. Ajudamos você a encher quartos, lotar mesas e
+                fortalecer sua marca — enquanto você foca no que faz de melhor:
+                encantar seus clientes.
+              </p>
+
+              <div className="expertise-areas">
+                <h4>Nossos diferenciais:</h4>
+                <div className="area-tags">
+                  <span className="area-tag">Gestão especializada</span>
+                  <span className="area-tag">Marketing digital</span>
+                  <span className="area-tag">Otimização de vendas</span>
+                  <span className="area-tag">Estratégias personalizadas</span>
+                  <span className="area-tag">Aumento de receita</span>
+                  <span className="area-tag">Experiência do cliente</span>
+                </div>
+              </div>
+
+              <div className="cta-container">
+                <a
+                  href="https://www.signiturehospitality.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
+                  <span>Visitar Site</span>
+                  <span className="btn-arrow">→</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="content-right">
+              <div
+                className="slider-container"
+                onMouseEnter={() => setSignaturePaused(true)}
+                onMouseLeave={() => setSignaturePaused(false)}
+              >
+                <div
+                  className="slider-wrapper"
+                  style={{
+                    transform: `translateX(-${
+                      currentSignatureSlide * 33.333
+                    }%)`,
+                  }}
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={(e) => handleTouchEnd(e, "signature")}
+                >
+                  {/* Card 1 */}
+                  <div className="slider-card management-card">
+                    <div className="card-content">
+                      <div className="card-icon management-icon">
+                        <Rotate3d color="#FFD700" size={30} />
+                      </div>
+                      <h4>Pronto para transformar seu negócio?</h4>
+                      <p>Soluções personalizadas para hotéis e restaurantes</p>
+                      <ul className="feature-list">
+                        <li>Gestão especializada</li>
+
+                        <li>Estratégias personalizadas</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Card 2 */}
+                  <div className="slider-card marketing-card">
+                    <div className="card-content">
+                      <div className="card-icon marketing-icon">
+                        <Film color="#FFD700" size={30} />
+                      </div>
+                      <h4>Marketing Digital</h4>
+                      <p>
+                        Estratégias digitais personalizadas para aumentar sua
+                        visibilidade e atrair mais clientes.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card 3 */}
+                  <div className="slider-card sales-card">
+                    <div className="card-content">
+                      <div className="card-icon sales-icon">
+                        <Percent color="#FFD700" size={30} />
+                      </div>
+                      <h4>Gestão de Vendas</h4>
+                      <p>
+                        Técnicas avançadas para aumentar sua taxa de ocupação e
+                        maximizar o faturamento.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="slider-controls">
+                  <button
+                    className="slider-arrow prev"
+                    onClick={prevSignatureSlide}
+                  >
+                    ❮
+                  </button>
+                  <div className="slider-dots">
+                    {[...Array(signatureSlideCount)].map((_, index) => (
+                      <span
+                        key={index}
+                        className={`slider-dot ${
+                          index === currentSignatureSlide ? "active" : ""
+                        }`}
+                        onClick={() => setCurrentSignatureSlide(index)}
+                      ></span>
+                    ))}
+                  </div>
+                  <button
+                    className="slider-arrow next"
+                    onClick={nextSignatureSlide}
+                  >
+                    ❯
+                  </button>
                 </div>
               </div>
             </div>
