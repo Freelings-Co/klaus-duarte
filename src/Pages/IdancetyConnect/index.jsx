@@ -505,14 +505,14 @@ const IdancetyConnect = () => {
             }`}
           >
             <div className="content-left">
-              <h3 className="project-title">SIGNATURE HOSPITALITY</h3>
+              <h3 className="project-title">SIGNITURE HOSPITALITY</h3>
               <div className="project-tagline">
                 <span>
                   Fazemos seu hotel ou restaurante crescer, sem enrolação.
                 </span>
               </div>
               <p className="project-description">
-                Na Signature Hospitality, você encontra soluções completas para
+                Na Signiture Hospitality, você encontra soluções completas para
                 gestão, marketing e vendas no setor de hospitalidade. Criamos
                 estratégias inteligentes, personalizadas e SEM contratos
                 amarrados. Ajudamos você a encher quartos, lotar mesas e
