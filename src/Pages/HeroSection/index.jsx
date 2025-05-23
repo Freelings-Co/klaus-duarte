@@ -10,7 +10,16 @@ function Hero() {
         <>
             <section className='hero-section'>
 
-                <video src={Video} autoPlay muted loop></video>
+                <video 
+              src={Video} 
+              autoPlay 
+              muted 
+              loop 
+              playsInline 
+              webkit-playsinline="true"
+              preload="auto"
+              className="hero-video"
+            ></video>
 
                 <img className='image' src={BannerHero}></img>
             </section>
