@@ -13,6 +13,7 @@ import IdancetyConnect from './Pages/IdancetyConnect'
 import ContactSection from './Pages/Contact'
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
 import VideoBG from './Components/VideoBg'
+import Footer from './components/Footer'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -27,6 +28,7 @@ createRoot(document.getElementById('root')).render(
     <ExperienciaInternacional />
     <IdancetyConnect />
     <ContactSection />
+    <Footer />
     <ScrollToTop />
     <VideoBG />
   </StrictMode>,
