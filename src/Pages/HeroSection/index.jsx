@@ -8,7 +8,7 @@ function Hero() {
     return (
 
         <>
-            <section className='hero-section'>
+            <section id='inicio' className='hero-section'>
 
                 <video 
               src={Video} 

@@ -31,7 +31,7 @@ function Footer() {
           <h4>Links Rápidos</h4>
           <ul>
             <li><a href="#inicio">Início</a></li>
-            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#projects">Projetos</a></li>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#contato">Contato</a></li>
           </ul>
