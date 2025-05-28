@@ -1,28 +1,82 @@
 // AboutSection.jsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './AboutSection.css';
 import profileImage from '../../assets/klaus.webp'; // Substitua pelo seu caminho real
 
 const AboutSection = () => {
+  const [counters, setCounters] = useState({
+    countries: 0,
+    years: 0,
+    languages: 0,
+    projects: 0
+  });
+  const [startedCounting, setStartedCounting] = useState(false);
+  const countersRef = useRef(null);
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
+          if (entry.target === countersRef.current && !startedCounting) {
+            setStartedCounting(true);
+            startCountingAnimation();
+          }
         }
       });
     }, { threshold: 0.3 });
 
-    document.querySelectorAll('.fade-in').forEach(el => {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach(el => {
       observer.observe(el);
     });
 
     return () => {
-      document.querySelectorAll('.fade-in').forEach(el => {
+      fadeElements.forEach(el => {
         observer.unobserve(el);
       });
     };
-  }, []);
+  }, [startedCounting]);
+
+  const startCountingAnimation = () => {
+    const targetValues = {
+      countries: 40,
+      years: 20,
+      languages: 5,
+      projects: 100
+    };
+
+    const duration = 2500; // 2.5 seconds
+    const frameDuration = 1000 / 60; // 60fps
+    const totalFrames = Math.round(duration / frameDuration);
+
+    const animate = (start, end, update, onComplete) => {
+      let frame = 0;
+      const counter = setInterval(() => {
+        frame++;
+        const progress = frame / totalFrames;
+        const current = Math.round(start + (progress * (end - start)));
+        
+        update(current);
+        
+        if (frame === totalFrames) {
+          clearInterval(counter);
+          if (onComplete) onComplete();
+        }
+      }, frameDuration);
+      
+      return () => clearInterval(counter);
+    };
+
+    Object.keys(targetValues).forEach(key => {
+      animate(0, targetValues[key], (value) => {
+        setCounters(prev => ({
+          ...prev,
+          [key]: value
+        }));
+      });
+    });
+  };
 
   return (
     <section id="sobre" className="about-section">
@@ -44,21 +98,21 @@ const AboutSection = () => {
             <p>Hoje, como diretor artístico, coreógrafo e especialista em experiências de hospitalidade, transformo lugares e pessoas através da arte, empatia e estratégia, conectando talentos em uma rede global de oportunidades.</p>
           </div>
           
-          <div className="about-highlights fade-in">
+          <div className="about-highlights fade-in" ref={countersRef}>
             <div className="highlight-item">
-              <span className="highlight-number">40+</span>
+              <span className="highlight-number">{counters.countries}+</span>
               <span className="highlight-label">Países Visitados</span>
             </div>
             <div className="highlight-item">
-              <span className="highlight-number">20+</span>
+              <span className="highlight-number">{counters.years}+</span>
               <span className="highlight-label">Anos de Carreira</span>
             </div>
             <div className="highlight-item">
-              <span className="highlight-number">5</span>
+              <span className="highlight-number">{counters.languages}</span>
               <span className="highlight-label">Idiomas Fluentes</span>
             </div>
             <div className="highlight-item">
-              <span className="highlight-number">100+</span>
+              <span className="highlight-number">{counters.projects}+</span>
               <span className="highlight-label">Projetos Internacionais</span>
             </div>
           </div>
