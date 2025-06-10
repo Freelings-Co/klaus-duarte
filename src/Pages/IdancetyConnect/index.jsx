@@ -45,9 +45,6 @@ const IdancetyConnect = () => {
   const [currentConnect360Slide, setCurrentConnect360Slide] = useState(0);
   const connect360SlideCount = 3;
 
-  // Event states
-  const [tonyRobbinsHovered, setTonyRobbinsHovered] = useState(false);
-
   // Slider state for Signature Hospitality section
   const [currentSignatureSlide, setCurrentSignatureSlide] = useState(0);
   const signatureSlideCount = 3;
@@ -411,86 +408,7 @@ const IdancetyConnect = () => {
         </div>
       </section>
 
-      {/* Tony Robbins Event Section */}
-      <section
-        className="project-section tony-robbins-section"
-        id="tony-robbins"
-      >
-        <div className="bg-overlay tony-robbins-overlay"></div>
-        <div className="container">
-          <div className={`content-layout ${animateIn ? "animate-in" : ""}`}>
-            <div className="content-left">
-              <h3 className="project-title">Klaus Duarte X TONY ROBBINS</h3>
-              <div className="project-tagline">
-                <span>
-                  Transformação pessoal e profissional em um evento único Online
-                  e Gratuito.
-                </span>
-              </div>
-              <p className="project-description">
-                Uma experiência transformadora com Bryant Cartagena, Treinador
-                Oficial da equipe do maior coach de desenvolvimento pessoal do
-                mundo. Participe deste evento exclusivo e descubra como
-                desbloquear seu potencial máximo, superar limitações e alcançar
-                resultados extraordinários em todas as áreas da sua vida.
-              </p>
-
-              <div className="expertise-areas">
-                <h4>O que você vai vivenciar:</h4>
-                <div className="area-tags">
-                  <span className="area-tag">Liderança</span>
-                  <span className="area-tag">Superação</span>
-                  <span className="area-tag">Crescimento</span>
-                  <span className="area-tag">Propósito</span>
-                  <span className="area-tag">Networking</span>
-                  <span className="area-tag">Transformação</span>
-                </div>
-              </div>
-
-              <div className="cta-container">
-                <a
-                  href="https://events.blackthorn.io/en/80dgRC6/klaus-duarte-x-tony-robbins-siguiente-nivel-2025-wbryant-cartagena-5a8UV511lPJ/overview"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button className="btn-primary">
-                    <span>Garanta sua vaga</span>
-                    <span className="btn-arrow">→</span>
-                  </button>
-                </a>
-              </div>
-            </div>
-
-            <div className="content-right">
-              <div
-                className="event-image-container"
-                onMouseEnter={() => setTonyRobbinsHovered(true)}
-                onMouseLeave={() => setTonyRobbinsHovered(false)}
-              >
-                <div
-                  className={`event-image ${
-                    tonyRobbinsHovered ? "hovered" : ""
-                  }`}
-                >
-                  <img
-                    src={Tonny}
-                    alt="Tony Robbins em evento de desenvolvimento pessoal"
-                    className="tony-robbins-img"
-                    loading="lazy"
-                  />
-                  <div className="image-overlay">
-                    <div className="overlay-content">
-                      <h4>Próximo Evento</h4>
-                      <p>Online Event • 7 de Junho, 2025</p>
-                      <span className="limited-seats">Vagas Limitadas</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Signature Hospitality Section */}
       <section
