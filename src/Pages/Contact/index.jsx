@@ -166,6 +166,10 @@ const ContactSection = () => {
                 <Phone className="contact-icon" />
                 <span>+506 7085 4154</span>
               </div>
+              <div className="contact-item">
+                <Phone className="contact-icon" />
+                <span>+55 11 91312-2001</span>
+              </div>
 
               <div className="contact-item">
                 <MapPin className="contact-icon" />

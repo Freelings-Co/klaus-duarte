@@ -45,12 +45,20 @@ function Footer() {
               <span>+506 7085 4154</span>
             </li>
             <li>
+              <Phone size={16} />
+              <span>+55 11 91312-2001</span>
+            </li>
+            <li>
               <Mail size={16} />
               <span>cnt360cr@gmail.com</span>
             </li>
             <li>
               <MapPin size={16} />
               <span>San José, Costa Rica</span>
+            </li>
+            <li>
+              <MapPin size={16} />
+              <span>São Paulo, Brasil</span>
             </li>
           </ul>
         </div>
