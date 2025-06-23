@@ -1,4 +1,4 @@
-import VideoBG from '../../assets/dance-video.mp4'
+import VideoBG from '../../assets/dance-video2.mp4'
 import './style.css'
 
 function Video() {
