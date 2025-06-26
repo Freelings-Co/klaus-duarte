@@ -2,7 +2,6 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { GlobalStyle } from './styles/GlobalStyles'
 import HeroSection from './Pages/HeroSection'
-import Header from './Components/Header'
 import About from './Pages/About'
 import TimeLine from './Pages/Timeline'
 import Navigation from './Components/Navigation'
@@ -13,6 +12,7 @@ import IdancetyConnect from './Pages/IdancetyConnect'
 import ContactSection from './Pages/Contact'
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
 import VideoBG from './Components/VideoBg'
+import Footer from './Components/Footer'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -27,6 +27,7 @@ createRoot(document.getElementById('root')).render(
     <ExperienciaInternacional />
     <IdancetyConnect />
     <ContactSection />
+    <Footer />
     <ScrollToTop />
     <VideoBG />
   </StrictMode>,

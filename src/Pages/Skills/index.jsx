@@ -1,9 +1,81 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './style.css';
+
+const AnimatedSkillBar = React.memo(({ level, tabKey }) => {
+  const [width, setWidth] = useState(0);
+  const animationRef = useRef(null);
+  const barRef = useRef(null);
+
+  // Função para animar a barra
+  const startAnimation = useCallback(() => {
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
+    
+    setWidth(0);
+    
+    let startTimestamp = null;
+    const duration = 2500; // 2.5 segundos
+    
+    const animate = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const elapsed = timestamp - startTimestamp;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function para suavizar a animação
+      const easeOutQuad = t => t * (2 - t);
+      
+      // Atualiza a largura baseada no progresso
+      setWidth(Math.floor(easeOutQuad(progress) * level));
+      
+      // Continua a animação se não terminou
+      if (progress < 1) {
+        animationRef.current = requestAnimationFrame(animate);
+      }
+    };
+    
+    // Pequeno atraso para garantir que o componente foi renderizado
+    const timeoutId = setTimeout(() => {
+      animationRef.current = requestAnimationFrame(animate);
+    }, 100);
+    
+    return () => clearTimeout(timeoutId);
+  }, [level]);
+
+  // Inicia a animação quando o componente é montado ou quando a aba muda
+  useEffect(() => {
+    startAnimation();
+    
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [startAnimation, tabKey]);
+
+  return (
+    <div className="skill-bar-container">
+      <div 
+        ref={barRef}
+        className="skill-bar" 
+        style={{ 
+          width: `${width}%`,
+          transition: 'width 0.1s ease-out'
+        }}
+      />
+    </div>
+  );
+});
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState('artistic');
   const [isVisible, setIsVisible] = useState(false);
+  const [tabChangeKey, setTabChangeKey] = useState(0);
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    setTabChangeKey(prev => prev + 1);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,19 +131,19 @@ const Skills = () => {
         <div className="skills-tabs">
           <button 
             className={`tab-button ${activeTab === 'artistic' ? 'active' : ''}`}
-            onClick={() => setActiveTab('artistic')}
+            onClick={() => handleTabChange('artistic')}
           >
             Artístico
           </button>
           <button 
             className={`tab-button ${activeTab === 'business' ? 'active' : ''}`}
-            onClick={() => setActiveTab('business')}
+            onClick={() => handleTabChange('business')}
           >
             Negócios
           </button>
           <button 
             className={`tab-button ${activeTab === 'languages' ? 'active' : ''}`}
-            onClick={() => setActiveTab('languages')}
+            onClick={() => handleTabChange('languages')}
           >
             Idiomas
           </button>
@@ -85,10 +157,10 @@ const Skills = () => {
                 <span className="skill-level">{skill.level}%</span>
               </div>
               <div className="skill-bar-container">
-                <div 
-                  className="skill-bar" 
-                  style={{ width: `${skill.level}%` }}
-                ></div>
+                <AnimatedSkillBar 
+                  level={skill.level} 
+                  tabKey={`${activeTab}-${tabChangeKey}`} 
+                />
               </div>
               <p className="skill-description">{skill.description}</p>
             </div>

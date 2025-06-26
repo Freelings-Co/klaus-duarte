@@ -44,6 +44,223 @@
     radial-gradient(circle at bottom left, rgba(255, 215, 0, 0.05), transparent 40%);
 }
 
+/* Signature Hospitality Overlay */
+.signature-hospitality-overlay {
+  background: radial-gradient(circle at top right, rgba(0, 180, 216, 0.1), transparent 60%),
+    radial-gradient(circle at bottom left, rgba(0, 180, 216, 0.05), transparent 40%);
+}
+
+/* Signature Hospitality Overlay */
+.signature-hospitality-overlay {
+  background: radial-gradient(circle at top right, rgba(0, 180, 216, 0.1), transparent 60%),
+    radial-gradient(circle at bottom left, rgba(0, 180, 216, 0.05), transparent 40%);
+}
+
+/* Signature Hospitality Card */
+.hospitality-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  perspective: 1000px;
+}
+
+.hospitality-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, rgba(15, 15, 15, 0.9), rgba(30, 30, 30, 0.9));
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid rgba(0, 180, 216, 0.2);
+}
+
+.hospitality-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(0, 180, 216, 0.4);
+}
+
+.hospitality-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(0, 180, 216, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hospitality-card:hover::before {
+  transform: translateX(100%);
+}
+
+.hospitality-card-content {
+  position: relative;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.7), rgba(30, 30, 30, 0.7));
+  backdrop-filter: blur(10px);
+}
+
+.hospitality-card h4 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+.hospitality-card h4::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #00b4d8, #0077b6);
+  border-radius: 3px;
+}
+
+.hospitality-card p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.hospitality-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hospitality-features li,
+.feature-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.feature-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #00b4d8;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.slider-card .feature-list {
+  margin-top: 15px;
+}
+
+.slider-card .feature-list li {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .feature-list li {
+    font-size: 0.95rem;
+  }
+  
+  .slider-card .feature-list li {
+    font-size: 0.9rem;
+  }
+}
+
+.hospitality-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #00b4d8;
+  font-weight: bold;
+}
+
+/* Adjust area-tags for Signature section */
+.signature-hospitality-section .area-tag {
+  background: rgba(0, 180, 216, 0.1);
+  border: 1px solid rgba(0, 180, 216, 0.3);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.signature-hospitality-section .area-tag:hover {
+  background: rgba(0, 180, 216, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .hospitality-card-content {
+    padding: 30px;
+  }
+  
+  .hospitality-card h4 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hospitality-image-container {
+    min-height: 350px;
+    margin-top: 40px;
+  }
+  
+  .hospitality-card-content {
+    padding: 25px;
+  }
+  
+  .hospitality-card h4 {
+    font-size: 1.4rem;
+  }
+  
+  .hospitality-card p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hospitality-card-content {
+    padding: 20px;
+  }
+  
+  .hospitality-card h4 {
+    font-size: 1.3rem;
+  }
+  
+  .hospitality-features li {
+    font-size: 0.95rem;
+  }
+}
+
 .container {
   position: relative;
   max-width: 1280px;
@@ -227,6 +444,12 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
 }
 
 .btn-primary::before {
@@ -274,6 +497,7 @@
   width: 300%;
   /* This ensures each slide is exactly 1/3 of the wrapper */
   height: 100%;
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 /* Each slide should take exactly 1/3 of the full width */
@@ -286,6 +510,7 @@
   padding: 40px;
   display: flex;
   flex-direction: column;
+  backface-visibility: hidden; /* Optimize for GPU rendering */
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
@@ -470,30 +695,54 @@
 .formation-card::after {
   background-image: url('../../assets/formation.webp');
   background-position: top;
+  background-size: cover;
 }
 
 .production-card::after {
   background-image: url('../../assets/production.webp');
   background-position: top;
+  background-size: cover;
+}
+
+/* Signature Hospitality Cards Backgrounds */
+.management-card::after {
+  background-image: url('../../assets/signature1.webp');
+  background-position: center;
+  background-size: cover;
+}
+
+.marketing-card::after {
+  background-image: url('../../assets/signature2.webp');
+  background-position: center;
+  background-size: cover;
+}
+
+.sales-card::after {
+  background-image: url('../../assets/signature3.webp');
+  background-position: center;
+  background-size: cover;
 }
 
 .export-card::after {
-  background-position: top;
-  background-image: url('../../assets//exportacao.webp');
+background-image: url('../../assets/exportacao.webp');
+background-position: top;
+background-size: cover;
 }
 
 .connection-card::after {
-  background-position: 0 -10em;
-  background-image: url('../../assets//connection.webp');
+  background-position: center;
+background-image: url('../../assets/connection.webp');
 }
 
 .opportunity-card::after {
-  background-image: url('../../assets//opportunity.webp');
+  background-image: url('../../assets/opportunity.webp');
+  background-size: cover;
 }
 
 .transform-card::after {
   background-position: center;
-  background-image: url('../../assets//transform.webp');
+  background-image: url('../../assets/transform.webp');
+  background-size: cover;
 }
 
 /* Card hover effects */
@@ -565,6 +814,7 @@
   height: 100%;
   object-fit: contain;
   transition: transform 0.8s var(--animation-timing);
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .event-image:hover .tony-robbins-img {
@@ -627,6 +877,19 @@
   opacity: 0.5;
 }
 
+/* Performance Optimizations */
+.slider-card::after {
+  will-change: transform, opacity;
+}
+
+.slider-wrapper {
+  will-change: transform;
+}
+
+.tony-robbins-img {
+  will-change: transform;
+}
+
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .section-title {
@@ -636,11 +899,15 @@
   .project-title {
     font-size: 2.4rem;
   }
+  
+  .slider-card {
+    padding: 30px;
+  }
 }
 
 @media (max-width: 1270px) {
   .project-section {
-    padding: 80px 0 0;
+    padding: 80px 0 40px;
   }
 
   .content-layout,
@@ -660,10 +927,14 @@
   .slider-container {
     height: 400px;
     width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   .event-image-container {
     height: 400px;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   /* Padding consistente para todas as seções */
@@ -676,26 +947,47 @@
 
 /* Continue responsive styles from 768px */
 @media (max-width: 768px) {
-
+  .project-section {
+    padding: 60px 0 30px;
+  }
+  
   .slider-container {
     width: 100%;
     margin: 0 auto;
+    height: 450px;
+  }
+  
+  .slider-card {
+    padding: 25px;
   }
 
   #idancety-title {
     font-size: 7vw;
-
   }
-
-
-
+  
+  .project-title {
+    font-size: 2rem;
+  }
+  
+  .project-description {
+    font-size: 1rem;
+  }
+  
+  .slider-arrow {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 @media (max-width: 576px) {
-
+  .project-section {
+    padding: 40px 0 20px;
+  }
+  
   .slider-container {
     width: 100%;
     border-radius: 10px;
+    height: 500px;
   }
 
   .content-right {
@@ -713,10 +1005,70 @@
 
   #idancety-title {
     font-size: 7.5vw;
-
   }
 
   #idancety-subtitle {
     font-size: 1.2em;
+  }
+  
+  .slider-card {
+    padding: 20px;
+  }
+  
+  .card-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+  }
+  
+  .slider-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  
+  .slider-card p {
+    font-size: 0.95rem;
+  }
+  
+  .project-tagline span {
+    font-size: 1.1rem;
+  }
+  
+  .area-tag {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .btn-primary {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 400px) {
+  .slider-container {
+    height: 520px;
+  }
+  
+  .event-image-container {
+    height: 300px;
+  }
+  
+  .slider-card {
+    padding: 15px;
+  }
+  
+  .project-title {
+    font-size: 1.8rem;
+  }
+  
+  #idancety-title {
+    font-size: 8vw;
+  }
+  
+  .project-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 }

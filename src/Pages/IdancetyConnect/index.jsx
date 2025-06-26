@@ -1,7 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./style.css";
 import Tonny from "../../assets/BannerTonnyRobins.jpg";
-import { User, Film, Sparkles, Link, Lightbulb, RefreshCw } from "lucide-react";
+import {
+  User,
+  Film,
+  Sparkles,
+  Link,
+  Lightbulb,
+  RefreshCw,
+  Rotate3d,
+  Navigation,
+  Percent,
+} from "lucide-react";
 
 // Custom hook for slider autoplay
 const useInterval = (callback, delay) => {
@@ -35,12 +45,18 @@ const IdancetyConnect = () => {
   const [currentConnect360Slide, setCurrentConnect360Slide] = useState(0);
   const connect360SlideCount = 3;
 
-  // Tony Robbins event state
-  const [tonyRobbinsHovered, setTonyRobbinsHovered] = useState(false);
+  // Slider state for Signature Hospitality section
+  const [currentSignatureSlide, setCurrentSignatureSlide] = useState(0);
+  const signatureSlideCount = 3;
 
   // Auto-advance sliders with pause on hover
   const [idancetyPaused, setIdancetyPaused] = useState(false);
   const [connect360Paused, setConnect360Paused] = useState(false);
+  const [signaturePaused, setSignaturePaused] = useState(false);
+
+  // Touch handling for mobile
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   useInterval(() => {
     if (!idancetyPaused) {
@@ -51,6 +67,12 @@ const IdancetyConnect = () => {
   useInterval(() => {
     if (!connect360Paused) {
       setCurrentConnect360Slide((prev) => (prev + 1) % connect360SlideCount);
+    }
+  }, 5000);
+
+  useInterval(() => {
+    if (!signaturePaused) {
+      setCurrentSignatureSlide((prev) => (prev + 1) % signatureSlideCount);
     }
   }, 5000);
 
@@ -75,6 +97,37 @@ const IdancetyConnect = () => {
     );
   };
 
+  const nextSignatureSlide = () => {
+    setCurrentSignatureSlide((prev) => (prev + 1) % signatureSlideCount);
+  };
+
+  const prevSignatureSlide = () => {
+    setCurrentSignatureSlide(
+      (prev) => (prev - 1 + signatureSlideCount) % signatureSlideCount
+    );
+  };
+
+  // Handle touch events for mobile swipe
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e, isIdancety = true) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX.current;
+
+    // If the swipe is significant enough (more than 50px)
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        // Swipe left - go to next slide
+        isIdancety ? nextIdancetySlide() : nextConnect360Slide();
+      } else {
+        // Swipe right - go to previous slide
+        isIdancety ? prevIdancetySlide() : prevConnect360Slide();
+      }
+    }
+  };
+
   // Intersection Observer effect
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -83,7 +136,7 @@ const IdancetyConnect = () => {
           setAnimateIn(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1, rootMargin: "0px 0px -100px 0px" }
     );
 
     const currentRef = sectionRef.current;
@@ -128,7 +181,7 @@ const IdancetyConnect = () => {
 
               <div className="cta-container">
                 <button className="btn-primary">
-                  <span>Saiba mais</span>
+                  <a href="#contato"><span>Saiba mais</span></a>
                   <span className="btn-arrow">→</span>
                 </button>
               </div>
@@ -143,10 +196,10 @@ const IdancetyConnect = () => {
                 <div
                   className="slider-wrapper"
                   style={{
-                    transform: `translateX(-${
-                      currentIdancetySlide * (100 / idancetySlideCount)
-                    }%)`,
+                    transform: `translateX(-${currentIdancetySlide * 33.333}%)`,
                   }}
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={(e) => handleTouchEnd(e, true)}
                 >
                   {/* Card 1 */}
                   <div className="slider-card formation-card">
@@ -257,7 +310,7 @@ const IdancetyConnect = () => {
 
               <div className="cta-container">
                 <button className="btn-primary">
-                  <span>Conecte-se agora</span>
+                  <a href="#contato"><span>Conecte-se agora</span></a>
                   <span className="btn-arrow">→</span>
                 </button>
               </div>
@@ -273,9 +326,13 @@ const IdancetyConnect = () => {
                   className="slider-wrapper"
                   style={{
                     transform: `translateX(-${
-                      currentConnect360Slide * (100 / connect360SlideCount)
+                      currentConnect360Slide * 33.333
                     }%)`,
                   }}
+                  onMouseEnter={() => setConnect360Paused(true)}
+                  onMouseLeave={() => setConnect360Paused(false)}
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={(e) => handleTouchEnd(e, false)}
                 >
                   {/* Card 1 */}
                   <div className="slider-card connection-card">
@@ -351,79 +408,146 @@ const IdancetyConnect = () => {
         </div>
       </section>
 
-      {/* Tony Robbins Event Section */}
+      
+
+      {/* Signature Hospitality Section */}
       <section
-        className="project-section tony-robbins-section"
-        id="tony-robbins"
+        className="project-section signature-hospitality-section"
+        id="signature-hospitality"
       >
-        <div className="bg-overlay tony-robbins-overlay"></div>
+        <div className="bg-overlay signature-hospitality-overlay"></div>
         <div className="container">
-          <div className={`content-layout ${animateIn ? "animate-in" : ""}`}>
+          <div
+            className={`content-layout reverse ${
+              animateIn ? "animate-in" : ""
+            }`}
+          >
             <div className="content-left">
-              <h3 className="project-title">Klaus Duarte X TONY ROBBINS</h3>
+              <h3 className="project-title">SIGNITURE HOSPITALITY</h3>
               <div className="project-tagline">
                 <span>
-                  Transformação pessoal e profissional em um evento único Online
-                  e Gratuito.
+                  Fazemos seu hotel ou restaurante crescer, sem enrolação.
                 </span>
               </div>
               <p className="project-description">
-                Uma experiência transformadora com Bryant Cartagena, Treinador
-                Oficial da equipe do maior coach de desenvolvimento pessoal do
-                mundo. Participe deste evento exclusivo e descubra como
-                desbloquear seu potencial máximo, superar limitações e alcançar
-                resultados extraordinários em todas as áreas da sua vida.
+                Na Signiture Hospitality, você encontra soluções completas para
+                gestão, marketing e vendas no setor de hospitalidade. Criamos
+                estratégias inteligentes, personalizadas e SEM contratos
+                amarrados. Ajudamos você a encher quartos, lotar mesas e
+                fortalecer sua marca — enquanto você foca no que faz de melhor:
+                encantar seus clientes.
               </p>
 
               <div className="expertise-areas">
-                <h4>O que você vai vivenciar:</h4>
+                <h4>Nossos diferenciais:</h4>
                 <div className="area-tags">
-                  <span className="area-tag">Liderança</span>
-                  <span className="area-tag">Superação</span>
-                  <span className="area-tag">Crescimento</span>
-                  <span className="area-tag">Propósito</span>
-                  <span className="area-tag">Networking</span>
-                  <span className="area-tag">Transformação</span>
+                  <span className="area-tag">Gestão especializada</span>
+                  <span className="area-tag">Marketing digital</span>
+                  <span className="area-tag">Otimização de vendas</span>
+                  <span className="area-tag">Estratégias personalizadas</span>
+                  <span className="area-tag">Aumento de receita</span>
+                  <span className="area-tag">Experiência do cliente</span>
                 </div>
               </div>
 
               <div className="cta-container">
                 <a
-                  href="https://events.blackthorn.io/en/80dgRC6/klaus-duarte-x-tony-robbins-siguiente-nivel-2025-wbryant-cartagena-5a8UV511lPJ/overview"
+                  href="https://www.signiturehospitality.com/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="btn-primary"
                 >
-                  <button className="btn-primary">
-                    <span>Garanta sua vaga</span>
-                    <span className="btn-arrow">→</span>
-                  </button>
+                  <span>Visitar Site</span>
+                  <span className="btn-arrow">→</span>
                 </a>
               </div>
             </div>
 
             <div className="content-right">
               <div
-                className="event-image-container"
-                onMouseEnter={() => setTonyRobbinsHovered(true)}
-                onMouseLeave={() => setTonyRobbinsHovered(false)}
+                className="slider-container"
+                onMouseEnter={() => setSignaturePaused(true)}
+                onMouseLeave={() => setSignaturePaused(false)}
               >
                 <div
-                  className={`event-image ${
-                    tonyRobbinsHovered ? "hovered" : ""
-                  }`}
+                  className="slider-wrapper"
+                  style={{
+                    transform: `translateX(-${
+                      currentSignatureSlide * 33.333
+                    }%)`,
+                  }}
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={(e) => handleTouchEnd(e, "signature")}
                 >
-                  <img
-                    src={Tonny}
-                    alt="Tony Robbins em evento de desenvolvimento pessoal"
-                    className="tony-robbins-img"
-                  />
-                  <div className="image-overlay">
-                    <div className="overlay-content">
-                      <h4>Próximo Evento</h4>
-                      <p>Online Event • 7 de Junho, 2025</p>
-                      <span className="limited-seats">Vagas Limitadas</span>
+                  {/* Card 1 */}
+                  <div className="slider-card management-card">
+                    <div className="card-content">
+                      <div className="card-icon management-icon">
+                        <Rotate3d color="#FFD700" size={30} />
+                      </div>
+                      <h4>Pronto para transformar seu negócio?</h4>
+                      <p>Soluções personalizadas para hotéis e restaurantes</p>
+                      <ul className="feature-list">
+                        <li>Gestão especializada</li>
+
+                        <li>Estratégias personalizadas</li>
+                      </ul>
                     </div>
                   </div>
+
+                  {/* Card 2 */}
+                  <div className="slider-card marketing-card">
+                    <div className="card-content">
+                      <div className="card-icon marketing-icon">
+                        <Film color="#FFD700" size={30} />
+                      </div>
+                      <h4>Marketing Digital</h4>
+                      <p>
+                        Estratégias digitais personalizadas para aumentar sua
+                        visibilidade e atrair mais clientes.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card 3 */}
+                  <div className="slider-card sales-card">
+                    <div className="card-content">
+                      <div className="card-icon sales-icon">
+                        <Percent color="#FFD700" size={30} />
+                      </div>
+                      <h4>Gestão de Vendas</h4>
+                      <p>
+                        Técnicas avançadas para aumentar sua taxa de ocupação e
+                        maximizar o faturamento.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="slider-controls">
+                  <button
+                    className="slider-arrow prev"
+                    onClick={prevSignatureSlide}
+                  >
+                    ❮
+                  </button>
+                  <div className="slider-dots">
+                    {[...Array(signatureSlideCount)].map((_, index) => (
+                      <span
+                        key={index}
+                        className={`slider-dot ${
+                          index === currentSignatureSlide ? "active" : ""
+                        }`}
+                        onClick={() => setCurrentSignatureSlide(index)}
+                      ></span>
+                    ))}
+                  </div>
+                  <button
+                    className="slider-arrow next"
+                    onClick={nextSignatureSlide}
+                  >
+                    ❯
+                  </button>
                 </div>
               </div>
             </div>
