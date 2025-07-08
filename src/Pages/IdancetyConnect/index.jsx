@@ -180,10 +180,12 @@ const IdancetyConnect = () => {
               </p>
 
               <div className="cta-container">
-                <button className="btn-primary">
-                  <a href="#contato"><span>Saiba mais</span></a>
-                  <span className="btn-arrow">→</span>
-                </button>
+                <a href="https://www.idancety.com" target="_blank">
+                  <button className="btn-primary">
+                    <span>Saiba mais</span>
+                    <span className="btn-arrow">→</span>
+                  </button>
+                </a>
               </div>
             </div>
 
@@ -256,9 +258,8 @@ const IdancetyConnect = () => {
                     {[...Array(idancetySlideCount)].map((_, index) => (
                       <span
                         key={index}
-                        className={`slider-dot ${
-                          index === currentIdancetySlide ? "active" : ""
-                        }`}
+                        className={`slider-dot ${index === currentIdancetySlide ? "active" : ""
+                          }`}
                         onClick={() => setCurrentIdancetySlide(index)}
                       ></span>
                     ))}
@@ -281,9 +282,8 @@ const IdancetyConnect = () => {
         <div className="bg-overlay connect360-overlay"></div>
         <div className="container">
           <div
-            className={`content-layout reverse ${
-              animateIn ? "animate-in" : ""
-            }`}
+            className={`content-layout reverse ${animateIn ? "animate-in" : ""
+              }`}
           >
             <div className="content-left">
               <h3 className="project-title">Connect360</h3>
@@ -325,9 +325,8 @@ const IdancetyConnect = () => {
                 <div
                   className="slider-wrapper"
                   style={{
-                    transform: `translateX(-${
-                      currentConnect360Slide * 33.333
-                    }%)`,
+                    transform: `translateX(-${currentConnect360Slide * 33.333
+                      }%)`,
                   }}
                   onMouseEnter={() => setConnect360Paused(true)}
                   onMouseLeave={() => setConnect360Paused(false)}
@@ -388,9 +387,8 @@ const IdancetyConnect = () => {
                     {[...Array(connect360SlideCount)].map((_, index) => (
                       <span
                         key={index}
-                        className={`slider-dot ${
-                          index === currentConnect360Slide ? "active" : ""
-                        }`}
+                        className={`slider-dot ${index === currentConnect360Slide ? "active" : ""
+                          }`}
                         onClick={() => setCurrentConnect360Slide(index)}
                       ></span>
                     ))}
@@ -408,7 +406,7 @@ const IdancetyConnect = () => {
         </div>
       </section>
 
-      
+
 
       {/* Signature Hospitality Section */}
       <section
@@ -418,9 +416,8 @@ const IdancetyConnect = () => {
         <div className="bg-overlay signature-hospitality-overlay"></div>
         <div className="container">
           <div
-            className={`content-layout reverse ${
-              animateIn ? "animate-in" : ""
-            }`}
+            className={`content-layout reverse ${animateIn ? "animate-in" : ""
+              }`}
           >
             <div className="content-left">
               <h3 className="project-title">SIGNITURE HOSPITALITY</h3>
@@ -472,9 +469,8 @@ const IdancetyConnect = () => {
                 <div
                   className="slider-wrapper"
                   style={{
-                    transform: `translateX(-${
-                      currentSignatureSlide * 33.333
-                    }%)`,
+                    transform: `translateX(-${currentSignatureSlide * 33.333
+                      }%)`,
                   }}
                   onTouchStart={handleTouchStart}
                   onTouchEnd={(e) => handleTouchEnd(e, "signature")}
@@ -535,9 +531,8 @@ const IdancetyConnect = () => {
                     {[...Array(signatureSlideCount)].map((_, index) => (
                       <span
                         key={index}
-                        className={`slider-dot ${
-                          index === currentSignatureSlide ? "active" : ""
-                        }`}
+                        className={`slider-dot ${index === currentSignatureSlide ? "active" : ""
+                          }`}
                         onClick={() => setCurrentSignatureSlide(index)}
                       ></span>
                     ))}
